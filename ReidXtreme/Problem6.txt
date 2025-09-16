@@ -1,0 +1,7 @@
+6
+a=1;b="x;y";c=3
+foo="bar;baz
+k=v;x=1;
+badline
+abc=
+abc=""

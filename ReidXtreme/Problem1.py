@@ -33,6 +33,7 @@ def solve():
         dp = [NEG]*(W+1)
         if h[v] <= W:
             dp[h[v]] = u[v]
+            #print(dp[h[v]])
         # merge children
         for c in children[v]:
             child_dp = dfs(c)

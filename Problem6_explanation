@@ -1,0 +1,65 @@
+File Recovery
+
+You’re working as a digital archivist for an old company. While migrating decades of system logs into a modern database, you discover that their “key=value” records were stored in a horribly broken format
+
+Each line was supposed to look like this:
+
+key1=value1;key2=value2;...;keyN=valueN...
+…but due to bugs, crashes, and bad software patches:
+
+Some lines have extra semicolons ;
+Some values are wrapped in quotes "..." but may contain ; inside
+Some quotes were never properly closed
+Some lines are just gibberish
+Your job is to repair each line with the fewest edits possible, so you can recover as many valid key–value pairs as you can
+
+Rules of Repair
+You can only do two types of edits:
+
+Delete a semicolon (;)
+Insert a missing closing quote (") at the very end of the line (at most once per line)
+After applying these minimal edits, extract the key–value pairs:
+
+Key-value pairs must be in the format key=value
+key must consist only of lowercase letters
+value must be non-empty
+The only valid way to represent an empty string is with explicit quotes: ""
+If a value starts with ", it must also end with "
+Consecutive key-value pairs must be separated by a semi-colon ;
+If multiple repair strategies give the same number of pairs, prefer the one with fewer edits.
+
+Input Format
+
+The first line contains a number T
+
+T = number of log lines The next T lines each contain a string S
+
+where S is a corrupted record
+
+Constraints
+
+1 ≤ T ≤ 250000
+1 ≤ len(S) ≤ 3000
+Output Format
+
+For each line, print two values P E
+
+P = maximum number of valid pairs recovered
+E = edits required to achieve P pairs
+Sample Input 0
+
+6
+a=1;b="x;y";c=3
+foo="bar;baz
+k=v;x=1;
+badline
+abc=
+abc=""
+Sample Output 0
+
+3 0
+1 1
+2 0
+0 0
+0 0
+1 0
